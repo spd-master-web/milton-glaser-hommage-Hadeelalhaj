@@ -23,7 +23,7 @@
 
 <body>
   <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="245.9" height="731.4">
-    <circle cx="123" cy="693.7" r="37.8" fill="#283fff"/>
+    <circle id="circle" cx="123" cy="693.7" r="37.8" fill="#283fff"/>
     <path class="box" d="M117 606h11v4h-6v1h6v5h-6v1h7v5h-12z" fill="#ffaf20"/>
     <path class="box" d="M114 588l8-9h-7v-6h16v5l-8 10h9v6h-18z" fill="#283fff"/>
     <path class="box" d="M118 532h10v29h-10z" fill="#ffaf20"/>
@@ -38,34 +38,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
   
   <script>
+    const clickCircle = document.getElementById('circle');
+
+    clickCircle.addEventListener('click',function() {myFunction('#box')
+
+
     
-    gsap.from(".box", {
-      duration: 1.5,
-      scale: 0.1,
-      y: 40,
-      opacity: 0,
-      ease: "power1.inOut",
-      stagger: { repeat:-1,
-        
-        grid: [7,15],
-        from: "end",
-        axis: "y",
-        ease: "power2.in",
-        amount: 1.5
-      }
-    }); 
-
-
-    // var myTimeline = gsap.timeline();
-    // var myDuration = .8;
-    // myTimeline.from('#letter-e', { duration: myDuration, y: -950, ease: "elastic"});
-    // myTimeline.from('#letter-z', { duration: myDuration, y: -900, ease: "elastic"});
-    // myTimeline.from('#letter-i', { duration: myDuration, y: -800, ease: "elastic"});
-    // myTimeline.from('#letter-n', { duration: myDuration, y: -700, ease: "elastic"});
-    // myTimeline.from('#letter-a', { duration: myDuration, y: -600, ease: "elastic"});
-    // myTimeline.from('#letter-g', { duration: myDuration, y: -500, ease: "elastic"});
-    // myTimeline.from('#letter-r', { duration: myDuration, y: -400, ease: "elastic"});
-    // myTimeline.from('#letter-o', { duration: myDuration, y: -300, ease: "elastic"});
+    function myFunction() {
+    
+      gsap.from(".box", {
+        duration: 1.5,
+        scale: 0.1,
+        y: 40,
+        opacity: 0,
+        ease: "power1.inOut",
+        stagger: { repeat:-1,
+          
+          grid: [7,15],
+          from: "end",
+          axis: "y",
+          ease: "power2.in",
+          amount: 1.5
+        }
+      }); 
+    }
 
  
   </script>
