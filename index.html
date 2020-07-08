@@ -16,7 +16,8 @@
   }
 
   .box {
-    opacity: 1;
+    opacity: 0;
+    /* transform: scale(.1); */
     
   }
 
@@ -25,6 +26,7 @@
     padding: 10px 30px;
     border-radius: 7px;
     border: none;
+    box-shadow: px 2px 4px 2px rgba(0, 0, 255, 0.301);
     background-color: #ffaf20;
     color: white;
   }
@@ -37,12 +39,10 @@
  .svg {
    
    height: 500px;
+   /* visibility: hidden; */
 
   }
-   
-
   
- 
 </style>
 
 <body>
@@ -60,36 +60,28 @@
         <path class="box" d="M0 116q0-27 9-48a107 107 0 0126-37A115 115 0 0174 8a150 150 0 0198 0 116 116 0 0139 23 106 106 0 0126 37q9 21 9 48t-9 48a109 109 0 01-26 37 116 116 0 01-39 24 145 145 0 01-98 0 115 115 0 01-39-24 110 110 0 01-26-37q-9-22-9-48zm79 0a58 58 0 003 20 48 48 0 009 15 40 40 0 0014 10 43 43 0 0018 4 41 41 0 0031-14 47 47 0 009-15 58 58 0 004-20 56 56 0 00-4-20 42 42 0 00-9-15 43 43 0 00-31-13 44 44 0 00-18 4 41 41 0 00-14 9 43 43 0 00-9 15 56 56 0 00-3 20z" fill="#283fff"/>
       </svg>
     </div>
-    <button id="#" onclick="myFunction()">CLICK ME</button>
+    <button id="btn" class="btn" >CLICK ME</button>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
   
   <script>
-    document.getElementById("motion");
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", myFunction)
     
-    const textAnimation = document.getElementById('motion');
-
     function myFunction() {
-    
-      var myFunction = gsap.from(".box", {
-        
+
+      // document.getElementById("motion").style.visability = "visable";
+      gsap.to(".box", {
         duration: 1.5,
-        scale: 0.1,
-        y: 40,
-        opacity: 0,
+        scale: 1,
+        // y: 0,
+        opacity: 1,
         ease: "power1.inOut",
-        stagger: { repeat:-1,
-          
-          grid: [7,15],
-          from: "end",
-          axis: "y",
-          ease: "power2.in",
-          amount: 1.5
-        }
+        stagger: 0.3
       }); 
-    }
+    };
 
  
   </script>
